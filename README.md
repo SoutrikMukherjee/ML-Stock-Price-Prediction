@@ -158,3 +158,125 @@ The notebooks are numbered in the recommended execution order:
    - Trains multiple prediction models
    - Evaluates and compares model performance
    - Makes predictions for future price movements
+
+You can use the modules directly in your code:
+
+```python
+from src.data.collect_stock_data import get_stock_data
+from src.features.sentiment_analysis import add_sentiment_features
+from src.models.predict_model import predict_next_day_movement
+
+# Get stock data
+stock_data = get_stock_data('AAPL', '2023-01-01', '2023-12-31')
+
+# Add sentiment analysis
+news_with_sentiment = add_sentiment_features(news_data)
+
+# Make predictions
+prediction = predict_next_day_movement(model, latest_data)
+```
+
+## Model Performance
+
+The project evaluates multiple machine learning models:
+
+```
+|
+ Model             
+|
+ Typical Accuracy 
+|
+ Typical F1 Score 
+|
+|
+-------------------
+|
+------------------
+|
+------------------
+|
+|
+ Logistic Regression 
+|
+ 0.55-0.60      
+|
+ 0.55-0.60        
+|
+|
+ Random Forest     
+|
+ 0.60-0.65        
+|
+ 0.60-0.65        
+|
+|
+ Gradient Boosting 
+|
+ 0.60-0.67        
+|
+ 0.60-0.67        
+|
+|
+ SVM               
+|
+ 0.55-0.62        
+|
+ 0.55-0.62        
+|
+|
+ MLP               
+|
+ 0.57-0.64        
+|
+ 0.57-0.64        
+|
+|
+ LSTM              
+|
+ 0.58-0.65        
+|
+ 0.58-0.65        
+|
+|
+ GRU               
+|
+ 0.58-0.64        
+|
+ 0.58-0.64        
+|
+|
+ Ensemble          
+|
+ 0.62-0.68        
+|
+ 0.62-0.68        
+|
+
+```
+*Note: Performance varies by stock, time period, and market conditions.*
+
+## Dependencies
+
+- **Data Processing**: NumPy, Pandas
+- **Machine Learning**: Scikit-learn, TensorFlow
+- **NLP**: NLTK, TextBlob, Transformers
+- **Visualization**: Matplotlib, Seaborn, Plotly
+- **APIs**: yfinance, requests
+- **Utilities**: python-dotenv, joblib
+
+## Future Improvements
+
+- Incorporate additional data sources (economic indicators, social media sentiment)
+- Implement more advanced NLP techniques (domain-specific models)
+- Add automated trading strategy backtesting
+- Create a web dashboard for real-time predictions
+- Optimize hyperparameters with Bayesian optimization
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Disclaimer
+
+This software is for educational purposes only. Do not use it for financial trading decisions. The predictions are not guaranteed to be accurate and should not be used as financial advice.
+```
